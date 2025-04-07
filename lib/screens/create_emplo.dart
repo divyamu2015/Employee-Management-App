@@ -34,15 +34,14 @@ class _AddEmployeeState extends State<AddEmployee> {
       headers: <String, String>{
         'Content-Type': 'application/json',
       },
-      
       body: jsonEncode(<String, dynamic>{
         'name': newEmployee.name,
         'age': newEmployee.age,
         'salary': newEmployee.salary,
       }),
     );
-      print(response.statusCode);
-      print(response.body);
+    print(response.statusCode);
+    print(response.body);
     if (response.statusCode == 200) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -50,7 +49,6 @@ class _AddEmployeeState extends State<AddEmployee> {
           duration: Duration(seconds: 2),
         ),
       );
-     
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -91,7 +89,7 @@ class _AddEmployeeState extends State<AddEmployee> {
                   width: width,
                   fit: BoxFit.cover,
                 ),
-                Container(
+                SizedBox(
                   height: height * 0.50,
                   width: width,
                   // decoration:const BoxDecoration(
@@ -205,7 +203,7 @@ class _AddEmployeeState extends State<AddEmployee> {
                               if (_formkey.currentState!.validate()) {
                                 _formkey.currentState!.save();
                                 addDatas();
-                                 Navigator.pop(context);
+                                Navigator.pop(context);
                               }
                             },
                             child: const Text('Add Employee'),
@@ -217,7 +215,7 @@ class _AddEmployeeState extends State<AddEmployee> {
                             onPressed: () {
                               _formkey.currentState!.reset();
                               ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
+                                const SnackBar(
                                   content: Text('Form reset successfully'),
                                   duration:
                                       Duration(seconds: 2), // Adjust as needed

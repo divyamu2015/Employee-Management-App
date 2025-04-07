@@ -21,9 +21,9 @@ class _UpdateEmployeeState extends State<UpdateEmployee> {
   final int _max = 70;
    //final int id;
   final double _minSalary = 45000.0;
-  TextEditingController _nameController = TextEditingController();
-  TextEditingController _ageController = TextEditingController();
-  TextEditingController _salaryController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _ageController = TextEditingController();
+  final TextEditingController _salaryController = TextEditingController();
 
   Future<void> updateDatas() async {
   String name = _nameController.text;
@@ -99,7 +99,7 @@ class _UpdateEmployeeState extends State<UpdateEmployee> {
                   width: width,
                   fit: BoxFit.cover,
                 ),
-                Container(
+                SizedBox(
                   height: height * 0.50,
                   width: width,
                   // decoration:const BoxDecoration(
@@ -225,7 +225,7 @@ class _UpdateEmployeeState extends State<UpdateEmployee> {
                             onPressed: () {
                               _formkey.currentState!.reset();
                               ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
+                                const SnackBar(
                                   content: Text('Form reset successfully'),
                                   duration:
                                       Duration(seconds: 2), // Adjust as needed

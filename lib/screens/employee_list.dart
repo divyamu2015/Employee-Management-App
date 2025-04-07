@@ -7,7 +7,7 @@ import '../model/employee_model.dart';
 import 'update_screen.dart';
 
 class EmployeeList extends StatefulWidget {
-  const EmployeeList({Key? key}) : super(key: key);
+  const EmployeeList({super.key});
 
   @override
   State<EmployeeList> createState() => _EmployeeListState();
@@ -21,7 +21,6 @@ class _EmployeeListState extends State<EmployeeList> {
     super.initState();
     getData();
   }
-
 
   Future<void> getData() async {
     try {
@@ -39,7 +38,7 @@ class _EmployeeListState extends State<EmployeeList> {
                 id: value['id'],
                 name: value['employee_name'] as String,
                 age: value['employee_age'].toString(),
-                salary: value['employee_salary'] .toString(),
+                salary: value['employee_salary'].toString(),
               );
             }).toList();
             print('list Length==-=> ${employees.length}');
@@ -56,7 +55,6 @@ class _EmployeeListState extends State<EmployeeList> {
     }
   }
 
-
   Future<void> deleteEmployee(int id) async {
     try {
       var url = Uri.parse('https://dummy.restapiexample.com/api/v1/delete/$id');
@@ -66,7 +64,6 @@ class _EmployeeListState extends State<EmployeeList> {
       print(response.body);
 
       if (response.statusCode == 200) {
-       
         setState(() {
           employees.removeWhere((employee) => employee.id == id);
         });
@@ -95,8 +92,6 @@ class _EmployeeListState extends State<EmployeeList> {
       );
     }
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -148,7 +143,9 @@ class _EmployeeListState extends State<EmployeeList> {
                             onPressed: () {
                               Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) {
-                                  return UpdateEmployee(id: id,);
+                                  return UpdateEmployee(
+                                    id: id,
+                                  );
                                 },
                               ));
                             },
@@ -168,7 +165,7 @@ class _EmployeeListState extends State<EmployeeList> {
           },
         ),
         floatingActionButton: FloatingActionButton(
-          backgroundColor: Color.fromARGB(255, 107, 105, 105),
+          backgroundColor: const Color.fromARGB(255, 107, 105, 105),
           onPressed: () async {
             await Navigator.of(context).push(
               MaterialPageRoute(

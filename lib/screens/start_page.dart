@@ -53,7 +53,7 @@ class _StartPageState extends State<StartPage> {
                           context, PageTransition(
                             alignment: Alignment.center,
                             type: PageTransitionType.rotate, duration:const Duration(seconds:1), 
-                            child: EmployeeList()));
+                            child: const EmployeeList()));
                       },
                         child:const Text('GetStart',
                     style: TextStyle(
